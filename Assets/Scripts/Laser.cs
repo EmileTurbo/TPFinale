@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class Laser : MonoBehaviour
 {
-    public float speed = 5f;
-    public float destroyTimer = 3f;
+    public float speed = 10f;
+    public float destroyTimer = 4f;
 
     // Start is called before the first frame update
     void Start()
     {
-        Invoke();
+        Invoke("DeactivateGameObject", destroyTimer);
     }
 
     // Update is called once per frame
@@ -24,5 +24,11 @@ public class Laser : MonoBehaviour
         Vector3 temp = transform.position;
         temp.x += speed * Time.deltaTime;
         transform.position = temp;
+    }
+
+    void DeactivateGameObject()
+    {
+        gameObject.SetActive(false);
+        Destroy(gameObject);
     }
 }

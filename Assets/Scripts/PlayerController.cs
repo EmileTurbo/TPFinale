@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float moveSpeed = 5f;
+    public float moveSpeed = 60f;
     private Rigidbody rb;
     private Vector3 moveDirection;
-    public GameObject laserJoueur;
+
+    [SerializeField]
+    private GameObject laserJoueur;
 
     [SerializeField]
     private Transform cannonPos;
@@ -32,11 +34,12 @@ public class PlayerController : MonoBehaviour
 
         moveDirection = new Vector3 (moveX, moveY, 0).normalized;
        
+        Tire();
     }
 
     private void FixedUpdate()
     {
-        rb.velocity = new Vector3(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed, 0);         
+        rb.velocity = new Vector3(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed, 0) * Time.deltaTime;         
 
     }
 
@@ -48,7 +51,7 @@ public class PlayerController : MonoBehaviour
             peutTirer = true;
         }
 
-        if (Input.GetKeyDown(KeyCode.K))
+        if (Input.GetMouseButtonDown(0))
         {
             if(peutTirer)
             {
