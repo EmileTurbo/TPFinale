@@ -5,6 +5,10 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float moveSpeed = 60f;
+    public float maxPosX;
+    public float minPosX;
+    public float maxPosY;
+    public float minPosY;
     private Rigidbody rb;
     private Vector3 moveDirection;
 
@@ -18,9 +22,12 @@ public class PlayerController : MonoBehaviour
     private float frequenceTireLive;
     private bool peutTirer;
 
+    Transform myTransform;
+
 
     private void Start()
     {
+        myTransform = GetComponent<Transform>();
         frequenceTireLive = frequenceTire;
         rb = GetComponent<Rigidbody>();
     }
@@ -29,12 +36,16 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveY = Input.GetAxisRaw("Vertical");
-
+     
         moveDirection = new Vector3 (moveX, moveY, 0).normalized;
        
+        // Appel de la fonction Tire()
         Tire();
+
+        myTransform.position = new Vector3(Mathf.Clamp(myTransform.position.x, minPosX, maxPosX), Mathf.Clamp(myTransform.position.y, minPosY, maxPosY),myTransform.position.z);
     }
 
     private void FixedUpdate()
@@ -43,9 +54,12 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    //Fonction pour controlé 
     void Tire()
     {
         frequenceTire += Time.deltaTime;
+
+        // Vérification du temps entre les tirs
         if(frequenceTire > frequenceTireLive)
         {
             peutTirer = true;
@@ -56,8 +70,10 @@ public class PlayerController : MonoBehaviour
             if(peutTirer)
             {
                 peutTirer = false;
-                frequenceTire = 0f;
+                // Reset tu délais entre les tirs
+                frequenceTire = 0f; 
 
+                //Instancie un laser à la position
                 Instantiate(laserJoueur, cannonPos.position, Quaternion.identity);
             }
         }

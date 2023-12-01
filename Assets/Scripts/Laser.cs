@@ -19,6 +19,7 @@ public class Laser : MonoBehaviour
         Move();
     }
 
+    // Fonction qui fait bouger le laser
     void Move()
     {
         Vector3 temp = transform.position;
@@ -26,6 +27,7 @@ public class Laser : MonoBehaviour
         transform.position = temp;
     }
 
+    // Fonction qui destroy le laser
     void DeactivateGameObject()
     {
         gameObject.SetActive(false);
