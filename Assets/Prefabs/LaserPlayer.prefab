@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -5537703802609992009}
   m_Layer: 0
   m_Name: LaserPlayer
-  m_TagString: Untagged
+  m_TagString: LaserJoueur
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -24,6 +24,9 @@ public class PlayerController : MonoBehaviour
 
     Transform myTransform;
 
+    public GameObject explosionPlayer;
+    public GameObject explosion;
+
 
     private void Start()
     {
@@ -78,5 +81,16 @@ public class PlayerController : MonoBehaviour
             }
         }
 
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Enemy")
+        {
+            Instantiate(explosionPlayer, transform.position, transform.rotation);
+            Instantiate(explosion, transform.position, transform.rotation);
+            Destroy(other.gameObject);
+            Destroy(gameObject);
+        }
     }
 }
