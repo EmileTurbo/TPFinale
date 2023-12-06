@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748171, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -800,7 +800,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 570632013832535785, guid: c484e9ee88e6f4942ad5c8a0461c6493, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1012
+      value: -1266
       objectReference: {fileID: 0}
     - target: {fileID: 570632013832535785, guid: c484e9ee88e6f4942ad5c8a0461c6493, type: 3}
       propertyPath: m_LocalPosition.y
@@ -888,10 +888,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 25000
-  maxPosX: 1249
-  minPosX: -1265
-  maxPosY: 549
-  minPosY: -544
+  maxPosX: 1200
+  minPosX: -1200
+  maxPosY: 540
+  minPosY: -540
   laserJoueur: {fileID: 252611754386583922, guid: 2df54437d9ed2b44f811c067acb47bea, type: 3}
   cannonPos: {fileID: 608882441}
   frequenceTire: 0.35
