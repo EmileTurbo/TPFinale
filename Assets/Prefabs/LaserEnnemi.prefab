@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 6729858641978974101}
   m_Layer: 0
   m_Name: LaserEnnemi
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -98,8 +98,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1af38e2830af994781f75a64064f707, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1500
-  destroyTimer: 3
+  speed: -1500
+  destroyTimer: 2
 --- !u!54 &-1956194204901402291
 Rigidbody:
   m_ObjectHideFlags: 0

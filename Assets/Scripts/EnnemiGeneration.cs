@@ -17,6 +17,7 @@ public class EnnemiGeneration : MonoBehaviour
 
     public float spawnWaitMeteorite;
     public float spawnWaitMine;
+    public float spawnWaitVaisseau;
     public float startWait;
 
     // Start is called before the first frame update
@@ -24,6 +25,7 @@ public class EnnemiGeneration : MonoBehaviour
     {
         StartCoroutine(SpawnMeteorite());
         StartCoroutine(SpawnMine());
+        StartCoroutine(SpawnVaisseau());
     }
     void Update()
     {
@@ -56,6 +58,21 @@ public class EnnemiGeneration : MonoBehaviour
             Quaternion spawnRotation = Quaternion.identity;
             Instantiate(mine, spawnPosition, spawnRotation);
             yield return new WaitForSeconds(spawnWaitMine);
+        }
+
+    }
+
+    IEnumerator SpawnVaisseau()
+    {
+
+        yield return new WaitForSeconds(startWait);
+
+        for (int i = 0; i < nbVaisseau; i++)
+        {
+            Vector3 spawnPosition = new Vector3(spawnValues.x, Random.Range(-spawnValues.y, spawnValues.y), spawnValues.z);
+            Quaternion spawnRotation = Quaternion.Euler(0, 270, 90);
+            Instantiate(vaisseauEnnemi, spawnPosition, spawnRotation);
+            yield return new WaitForSeconds(spawnWaitVaisseau);
         }
 
     }
