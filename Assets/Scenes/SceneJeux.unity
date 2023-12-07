@@ -992,13 +992,14 @@ MonoBehaviour:
   - {fileID: 130102, guid: 04d0bf4be9447154188d86f6e3b8dce9, type: 3}
   - {fileID: 141316, guid: 84cc3cd234dfc9d4d9d2e92c0eb0af75, type: 3}
   - {fileID: 151664, guid: fa49e460baf435b4780da7196c2ab473, type: 3}
-  mine: {fileID: 0}
+  mine: {fileID: 100000, guid: 97ef08cc7411beb4b833c8331d89702f, type: 3}
   vaisseauEnnemi: {fileID: 0}
   nbMeteorite: 20
   nbMine: 15
   nbVaisseau: 10
   spawnValues: {x: 1300, y: 520, z: 950}
-  spawnWait: 1
+  spawnWaitMeteorite: 2
+  spawnWaitMine: 3
   startWait: 1
 --- !u!4 &1989369729
 Transform:
