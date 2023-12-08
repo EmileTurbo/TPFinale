@@ -35,6 +35,7 @@ public class Meteorite : MonoBehaviour
         if (other.gameObject.tag == "LaserJoueur")
         {
             UI.points = UI.points + 10;
+            UI.nbMeteoriteDestroyed = UI.nbMeteoriteDestroyed + 1;
             Instantiate(explosion, transform.position, transform.rotation);
             Destroy(other.gameObject);
             Destroy(gameObject);

@@ -91,7 +91,7 @@ public class PlayerController : MonoBehaviour
             Instantiate(explosion, transform.position, transform.rotation);
             Destroy(other.gameObject);
             Destroy(gameObject);
-            UI.
+            
         }
     }
 }

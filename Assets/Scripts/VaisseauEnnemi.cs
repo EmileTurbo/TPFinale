@@ -49,6 +49,7 @@ public class VaisseauEnnemi : MonoBehaviour
         if (other.gameObject.tag == "LaserJoueur")
         {
             UI.points = UI.points + 30;
+            UI.nbVaisseauDestroyed = UI.nbVaisseauDestroyed + 1;
             Instantiate(explosion, transform.position, transform.rotation);
             Destroy(other.gameObject);
             Destroy(gameObject);

@@ -29,7 +29,7 @@ public class UI : MonoBehaviour
     {
         textPoints.text = "Points : " + points;
         textMeteorite.text = "Météorites détruites : " + nbMeteoriteDestroyed;
-        textMeteorite.text = "Vaisseaux détruits : " + nbVaisseauDestroyed;
+        textVaisseau.text = "Vaisseaux détruits : " + nbVaisseauDestroyed;
 
         if (Joueur == null )
         {
