@@ -5,10 +5,10 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float moveSpeed = 60f;
-    public float maxPosX;
-    public float minPosX;
-    public float maxPosY;
-    public float minPosY;
+    public float maxPosX = 1000f;
+    public float minPosX = -1000f;
+    public float maxPosY = 540f;
+    public float minPosY = -540f;
     private Rigidbody rb;
     private Vector3 moveDirection;
 

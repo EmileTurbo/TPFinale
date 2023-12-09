@@ -9,20 +9,24 @@ public class EnnemiGeneration : MonoBehaviour
     public GameObject mine;
     public GameObject vaisseauEnnemi;
 
-    public int nbMeteorite = 20;
-    public int nbMine = 15;
-    public int nbVaisseau = 10;
+    public int nbMeteorite;
+    public int nbMine;
+    public int nbVaisseau;
 
     public Vector3 spawnValues;
 
-    public float spawnWaitMeteorite;
-    public float spawnWaitMine;
-    public float spawnWaitVaisseau;
     public float startWait;
+
+    public GameObject joueur;
+
+    
+    
+  
 
     // Start is called before the first frame update
     void Start()
     {
+        //Appel de fonctions qui font apparetre les obstacles
         StartCoroutine(SpawnMeteorite());
         StartCoroutine(SpawnMine());
         StartCoroutine(SpawnVaisseau());
@@ -34,16 +38,20 @@ public class EnnemiGeneration : MonoBehaviour
 
     IEnumerator SpawnMeteorite()
     {
-
         yield return new WaitForSeconds(startWait);
 
-        for (int i = 0; i < nbMeteorite; i++)
+        do
         {
-            Vector3 spawnPosition = new Vector3(spawnValues.x, Random.Range(-spawnValues.y, spawnValues.y), spawnValues.z);
-            Quaternion spawnRotation = Quaternion.identity;
-            Instantiate(meteorite[Random.Range(0,meteorite.Length)], spawnPosition, spawnRotation);
-            yield return new WaitForSeconds(spawnWaitMeteorite);
-        }
+            for (int i = 0; i < nbMeteorite; i++)
+            {
+                Vector3 spawnPosition = new Vector3(spawnValues.x, Random.Range(-spawnValues.y, spawnValues.y), spawnValues.z);
+                Quaternion spawnRotation = Quaternion.identity;
+                //Instancie une météorite
+                Instantiate(meteorite[Random.Range(0, meteorite.Length)], spawnPosition, spawnRotation);
+            }
+            yield return new WaitForSeconds(GestionGame.spawnWaitMeteorite);
+
+        } while (joueur != null);
 
     }
 
@@ -52,13 +60,18 @@ public class EnnemiGeneration : MonoBehaviour
 
         yield return new WaitForSeconds(startWait);
 
-        for (int i = 0; i < nbMine; i++)
+        do
         {
-            Vector3 spawnPosition = new Vector3(spawnValues.x, Random.Range(-spawnValues.y, spawnValues.y), spawnValues.z);
-            Quaternion spawnRotation = Quaternion.identity;
-            Instantiate(mine, spawnPosition, spawnRotation);
-            yield return new WaitForSeconds(spawnWaitMine);
-        }
+            for (int i = 0; i < nbMine; i++)
+            {
+                Vector3 spawnPosition = new Vector3(spawnValues.x, Random.Range(-spawnValues.y, spawnValues.y), spawnValues.z);
+                Quaternion spawnRotation = Quaternion.identity;
+                //Instancie une mine
+                Instantiate(mine, spawnPosition, spawnRotation);
+            }
+            yield return new WaitForSeconds(GestionGame.spawnWaitMine);
+
+        } while (joueur != null);
 
     }
 
@@ -67,13 +80,20 @@ public class EnnemiGeneration : MonoBehaviour
 
         yield return new WaitForSeconds(startWait);
 
-        for (int i = 0; i < nbVaisseau; i++)
+        do
         {
-            Vector3 spawnPosition = new Vector3(spawnValues.x, Random.Range(-spawnValues.y, spawnValues.y), spawnValues.z);
-            Quaternion spawnRotation = Quaternion.Euler(0, 270, 90);
-            Instantiate(vaisseauEnnemi, spawnPosition, spawnRotation);
-            yield return new WaitForSeconds(spawnWaitVaisseau);
-        }
+            for (int i = 0; i < nbVaisseau; i++)
+            {
+                Vector3 spawnPosition = new Vector3(spawnValues.x, Random.Range(-spawnValues.y, spawnValues.y), spawnValues.z);
+                Quaternion spawnRotation = Quaternion.Euler(0, 270, 90);
+                //Instancie un vaisseau
+                Instantiate(vaisseauEnnemi, spawnPosition, spawnRotation);
+            }
+
+            yield return new WaitForSeconds(GestionGame.spawnWaitVaisseau);
+
+        } while (joueur != null);
 
     }
+
 }

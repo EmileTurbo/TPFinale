@@ -20,12 +20,14 @@ public class Meteorite : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Appel de la fonction Move()
         Move();
     }
 
     // Fonction qui destroy la météorite
     void DeactivateGameObject()
     {
+        //Destroy la météorite quand elle est hors jeux
         gameObject.SetActive(false);
         Destroy(gameObject);
     }
@@ -34,9 +36,14 @@ public class Meteorite : MonoBehaviour
     {
         if (other.gameObject.tag == "LaserJoueur")
         {
-            UI.points = UI.points + 10;
+            //Ajoute des points
+            GestionGame.points = GestionGame.points + 10;
+            GestionGame.maxPoints = GestionGame.maxPoints + 10;
+            //Ajoute au compteur de météorites détruites
             UI.nbMeteoriteDestroyed = UI.nbMeteoriteDestroyed + 1;
+            //Instantie une explosion
             Instantiate(explosion, transform.position, transform.rotation);
+            //Destroy le laser et la météorite
             Destroy(other.gameObject);
             Destroy(gameObject);
         }

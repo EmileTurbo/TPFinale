@@ -48,9 +48,14 @@ public class VaisseauEnnemi : MonoBehaviour
     {
         if (other.gameObject.tag == "LaserJoueur")
         {
-            UI.points = UI.points + 30;
+            //Ajoute des points
+            GestionGame.points = GestionGame.points + 30;
+            GestionGame.maxPoints = GestionGame.maxPoints + 30;
+            //Ajoute au compteur de vaisseaux détruits
             UI.nbVaisseauDestroyed = UI.nbVaisseauDestroyed + 1;
+            //Instantie une explosion
             Instantiate(explosion, transform.position, transform.rotation);
+            //Destroy le laser et le vaisseau
             Destroy(other.gameObject);
             Destroy(gameObject);
         }
