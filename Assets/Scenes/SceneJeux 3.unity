@@ -321,7 +321,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0f3c8b5ecf0c73f4a915616d49f1a802, type: 2}
+  - {fileID: 2100000, guid: 62ea54e28f4d58142b825926a461f172, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2782,9 +2782,9 @@ MonoBehaviour:
   - {fileID: 151664, guid: fa49e460baf435b4780da7196c2ab473, type: 3}
   mine: {fileID: 100000, guid: 97ef08cc7411beb4b833c8331d89702f, type: 3}
   vaisseauEnnemi: {fileID: 7482213359681588994, guid: d8f45d7700cc34f47974a2c1ad5db1bb, type: 3}
-  nbMeteorite: 1
-  nbMine: 1
-  nbVaisseau: 1
+  nbMeteorite: 3
+  nbMine: 2
+  nbVaisseau: 4
   spawnValues: {x: 1300, y: 520, z: 950}
   startWait: 1
   joueur: {fileID: 1418259949}
@@ -2840,9 +2840,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a49b8405e6c44345911d7dcbf316928, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreObjectif1: 150
-  scoreObjectif2: 200
-  scoreObjectif3: 250
+  scoreObjectif1: 300
+  scoreObjectif2: 350
+  scoreObjectif3: 400
 --- !u!1 &2023384948
 GameObject:
   m_ObjectHideFlags: 0
