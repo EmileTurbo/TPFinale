@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - LaserJoueur
+  - Mine
   layers:
   - Default
   - TransparentFX

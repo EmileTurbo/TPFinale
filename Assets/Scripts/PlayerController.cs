@@ -87,11 +87,19 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.tag == "Enemy")
         {
-            Instantiate(explosionPlayer, transform.position, transform.rotation);
             Instantiate(explosion, transform.position, transform.rotation);
             Destroy(other.gameObject);
             Destroy(gameObject);
             
+        }
+
+        if (other.gameObject.tag == "Mine")
+        {
+            Instantiate(explosionPlayer, transform.position, transform.rotation);
+            Instantiate(explosion, transform.position, transform.rotation);
+            Destroy(other.gameObject);
+            Destroy(gameObject);
+
         }
     }
 }
